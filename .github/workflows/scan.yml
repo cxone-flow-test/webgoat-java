@@ -1,6 +1,8 @@
 name: Checkmarx Scan
 on:
   workflow_dispatch:
+  push:
+  
 
 jobs:
   execute-scan:
