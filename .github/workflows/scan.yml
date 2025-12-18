@@ -41,8 +41,9 @@ jobs:
         run: |
           virtualenv .venv
           . .venv/bin/activate
-          wget https://github.com/checkmarx-ts/cxone-sarif/releases/download/1.1.1rc14/cxone_sarif-1.1.1rc14-py3-none-any.whl
-          pip install cxone_sarif-1.1.1rc14-py3-none-any.whl[cli]
+          pip install "cxone_sarif[cli]@https://github.com/checkmarx-ts/cxone-sarif/releases/download/1.1.1rc14/cxone_sarif-1.1.1rc14-py3-none-any.whl"
+          # wget https://github.com/checkmarx-ts/cxone-sarif/releases/download/1.1.1rc14/cxone_sarif-1.1.1rc14-py3-none-any.whl
+          # pip install cxone_sarif-1.1.1rc14-py3-none-any.whl[cli]
           cxone-sarif -h
           # cxone-sarif --region US --tenant ${{ secrets.CXONE_TENANT }} --client ${{ secrets.CXONE_CLIENT_ID }} --secret ${{ secrets.CXONE_CLIENT_SECRET }} --with-sast-simid --level DEBUG ${{ steps.cxscan.outputs.scan-id }}
 
