@@ -43,7 +43,7 @@ jobs:
           virtualenv .venv
           . .venv/bin/activate
           pip install "cxone_sarif[cli]@https://github.com/checkmarx-ts/cxone-sarif/releases/download/1.1.1rc14/cxone_sarif-1.1.1rc14-py3-none-any.whl"
-          cxone-sarif --region US --tenant ${{ secrets.CXONE_TENANT }} --client ${{ secrets.CXONE_CLIENT_ID }} --secret ${{ secrets.CXONE_CLIENT_SECRET }} --with-sast-simid --level DEBUG ${{ steps.cxscan.outputs.scan-id }}
+          cxone-sarif --region US --tenant ${{ secrets.CXONE_TENANT }} --client ${{ secrets.CXONE_CLIENT_ID }} --secret ${{ secrets.CXONE_CLIENT_SECRET }} --level DEBUG ${{ steps.cxscan.outputs.scan-id }}
 
       - name: Sarif Upload
         uses: github/codeql-action/upload-sarif@c36620d31ac7c881962c3d9dd939c40ec9434f2b
